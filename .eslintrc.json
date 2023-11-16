@@ -1,0 +1,47 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:import/recommended",
+		"plugin:import/electron",
+		"plugin:import/typescript"
+	],
+	"parser": "@typescript-eslint/parser",
+	"rules": {
+		"no-console": "warn",
+		"no-return-await": "error",
+		"eqeqeq": ["error", "allow-null"],
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-var-requires": "off",
+		"@typescript-eslint/no-unused-vars": [
+			"warn",
+			{ "argsIgnorePattern": "^_" }
+		],
+	
+		// "@typescript-eslint/explicit-module-boundary-types": ["error", { "allowArgumentsExplicitlyTypedAsAny": true }],
+		"import/no-unresolved": "off",
+		"implicit-arrow-linebreak": "off",
+		"react/jsx-one-expression-per-line": "off",
+		"react/jsx-wrap-multilines": "off",
+		"import/no-named-as-default": "off",
+		"import/prefer-default-export": "off",
+		"import/order": 1,
+		"react/jsx-props-no-spreading": 0,
+		"react/require-default-props": 0,
+		"operator-linebreak": "off",
+		"react/jsx-curly-newline": "off",
+		"@typescript-eslint/indent": "off",
+		"function-paren-newline": "off",
+		"consistent-return": "off",
+		"max-classes-per-file": "off",
+		"@typescript-eslint/ban-types": "off",
+		"no-confusing-arrow": "off",
+		"arrow-body-style": 1
+	}
+}
