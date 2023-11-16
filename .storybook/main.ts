@@ -22,20 +22,20 @@ const config: StorybookConfig = {
 				alias: [
 					{
 						find: '@web/',
-						replacement: path.resolve(__dirname, '../src/render/'),
+						replacement: path.resolve(__dirname, '../src/'),
 					},
 					{
 						find: '@web/components',
-						replacement: path.resolve(__dirname, '../src/render/components'),
+						replacement: path.resolve(__dirname, '../src/components'),
 					},
 
 					{
 						find: '@web/lib',
-						replacement: path.resolve(__dirname, '../src/render/lib'),
+						replacement: path.resolve(__dirname, '../src/lib'),
 					},
 					{
 						find: '@web/assets/icons',
-						replacement: path.resolve(__dirname, '../src/render/assets/icons'),
+						replacement: path.resolve(__dirname, '../src/assets/icons'),
 					},
 				],
 			},
