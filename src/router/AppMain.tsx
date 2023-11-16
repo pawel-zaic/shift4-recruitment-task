@@ -1,7 +1,8 @@
-import { AppRouter } from "@web/router";
+import { MainTemplate } from '@web/components';
+import { AppRouter } from '@web/router';
 
 export const AppMain = () => (
-    <>
-    <AppRouter />
-    </>
-)
+	<MainTemplate>
+		<AppRouter />
+	</MainTemplate>
+);
