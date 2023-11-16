@@ -3,16 +3,14 @@ import { createTheme } from '@mui/material';
 let theme = createTheme({
 	typography: {
 		fontFamily: [
-			'-apple-system',
-			'BlinkMacSystemFont',
-			'"Segoe UI"',
+			'Inter',
+			'"Work Sans"',
+			'Rubik',
 			'Roboto',
 			'"Helvetica Neue"',
 			'Arial',
+			'-apple-system',
 			'sans-serif',
-			'"Apple Color Emoji"',
-			'"Segoe UI Emoji"',
-			'"Segoe UI Symbol"',
 		].join(','),
 	},
 });
