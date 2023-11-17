@@ -15,5 +15,14 @@ export const Primary: Story = {
 	args: {
 		color: 'primary',
 		children: 'Label',
+		variant: 'contained',
+	},
+};
+
+export const Secondary: Story = {
+	args: {
+		color: 'primary',
+		children: 'Label',
+		variant: 'outlined',
 	},
 };
