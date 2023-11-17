@@ -44,9 +44,10 @@ let theme = createTheme({
 		},
 		blueGray: {
 			main: '#1E2A32',
+			light: '#E9EEF2',
 		},
 		purpleGray: {
-			main: '#595D7B',
+			main: '#474A62',
 		},
 		midnightGray: {
 			main: '#4D6475',
@@ -89,7 +90,6 @@ theme = createTheme(theme, {
 	},
 	components: {
 		MuiButton: {
-			styleOverrides: {},
 			variants: [
 				{
 					props: { variant: 'contained', color: 'primary' },

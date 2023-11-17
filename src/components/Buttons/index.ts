@@ -1,2 +1,2 @@
 export * from './AppButton';
-export * from './AppCloseButton';
+export * from './CloseButton';

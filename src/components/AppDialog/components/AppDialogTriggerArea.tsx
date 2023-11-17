@@ -1,7 +1,9 @@
-import { BoxProps as MuiBoxProps, useMediaQuery } from '@mui/material';
-import { AppCloseButton } from '@web/components';
-import { theme } from '@web/lib';
 import { ReactNode } from 'react';
+import { BoxProps as MuiBoxProps, useMediaQuery } from '@mui/material';
+
+import { CloseButton } from '@web/components';
+import { theme } from '@web/lib';
+
 import { StyledTriggerArea } from './AppDialogTriggerArea.styled';
 
 interface AppDialogTriggerArea extends MuiBoxProps {
@@ -19,7 +21,7 @@ export const AppDialogTriggerArea = ({
 	return (
 		<StyledTriggerArea {...props}>
 			{children}
-			{showCloseButton && <AppCloseButton onClick={handleClose} />}
+			{showCloseButton && <CloseButton onClick={handleClose} />}
 		</StyledTriggerArea>
 	);
 };

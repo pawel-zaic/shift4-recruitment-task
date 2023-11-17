@@ -1,10 +1,10 @@
 import { IconButtonProps as MuiIconButtonProps } from '@mui/material';
 import { CloseIcon } from '@web/assets';
-import { StyledCloseButton } from './AppCloseButton.styled';
+import { StyledCloseButton } from './CloseButton.styled';
 
-interface AppCloseButtonProps extends MuiIconButtonProps {}
+interface CloseButtonProps extends MuiIconButtonProps {}
 
-export const AppCloseButton = ({ onClick, ...props }: AppCloseButtonProps) => (
+export const CloseButton = ({ onClick, ...props }: CloseButtonProps) => (
 	<StyledCloseButton aria-label="close" onClick={onClick} {...props}>
 		<CloseIcon />
 	</StyledCloseButton>
