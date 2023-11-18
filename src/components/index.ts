@@ -7,3 +7,4 @@ export * from './AppDialog';
 
 export * from './CurrencyInput';
 export * from './MonthPicker';
+export * from './Navbar';
