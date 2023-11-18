@@ -3,5 +3,5 @@ import { useIntl } from 'react-intl';
 export const HomeView = () => {
 	const { formatMessage } = useIntl();
 
-	return <>{formatMessage({ id: 'app.title' })}</>;
+	return <div>{formatMessage({ id: 'app.title' })}</div>;
 };

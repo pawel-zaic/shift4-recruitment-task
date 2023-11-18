@@ -1,5 +1,7 @@
 import { Container } from '@mui/material';
 import { ReactNode } from 'react';
+import { Navbar } from '@web/components';
+import { theme } from '@web/lib';
 
 interface MainTemplateProps {
 	children: ReactNode;
@@ -10,8 +12,20 @@ export const MainTemplate = ({ children }: MainTemplateProps) => (
 		component="div"
 		maxWidth="xl"
 		disableGutters
-		sx={{ backgroundColor: 'ghostwhite' }}
+		sx={{
+			backgroundColor: '#F4F8FA',
+			display: 'flex',
+			flexDirection: 'column',
+			height: '100vh',
+		}}
 	>
-		{children}
+		<Navbar />
+		<Container
+			maxWidth="xl"
+			disableGutters
+			sx={{ padding: theme.spacing(6), display: 'flex', flexDirection: 'column', flexGrow: '1' }}
+		>
+			{children}
+		</Container>
 	</Container>
 );
