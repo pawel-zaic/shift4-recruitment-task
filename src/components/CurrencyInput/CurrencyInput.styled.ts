@@ -8,6 +8,10 @@ export const StyledCurrencyInputTextField = styled(MuiTextField)(({ theme }) => 
 		fontSize: theme.spacing(6),
 		fontWeight: 600,
 		padding: `${theme.spacing(4)} ${theme.spacing(4)} ${theme.spacing(4)} ${theme.spacing(2)}`,
+		border: 'none',
+		'& fieldset': {
+			borderColor: theme.palette.blueGray.light,
+		},
 
 		'&:hover fieldset': {
 			borderColor: theme.palette.blueGray.light,

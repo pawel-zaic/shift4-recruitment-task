@@ -1,9 +1,4 @@
-import {
-	PaletteColor,
-	PaletteColorOptions,
-	alpha,
-	createTheme,
-} from '@mui/material';
+import { PaletteColor, PaletteColorOptions, alpha, createTheme } from '@mui/material';
 
 declare module '@mui/material/styles' {
 	interface Palette {
@@ -77,6 +72,7 @@ let theme = createTheme({
 			'-apple-system',
 			'sans-serif',
 		].join(','),
+		fontWeightBold: 600,
 	},
 });
 
@@ -86,6 +82,9 @@ theme = createTheme(theme, {
 			fontFamily: 'Work Sans',
 			fontSize: theme.spacing(6),
 			fontWeight: theme.typography.fontWeightBold,
+			[theme.breakpoints.up('sm')]: {
+				fontSize: theme.spacing(8),
+			},
 		},
 	},
 	components: {
@@ -120,6 +119,11 @@ theme = createTheme(theme, {
 					},
 				},
 			],
+		},
+		MuiDialogActions: {
+			defaultProps: {
+				disableSpacing: true,
+			},
 		},
 	},
 });

@@ -16,7 +16,7 @@ export const AppDialog = ({
 	handleClose,
 	...props
 }: AppDialogProps) => {
-	const fullScreen = !useMediaQuery(theme.breakpoints.up('md'));
+	const fullScreen = !useMediaQuery(theme.breakpoints.up('sm'));
 	return (
 		<StyledDialog open={open} fullScreen={fullScreen} onClose={handleClose} {...props}>
 			{triggerArea && (
