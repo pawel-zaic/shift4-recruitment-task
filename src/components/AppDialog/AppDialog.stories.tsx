@@ -19,6 +19,7 @@ export const Default: Story = {
 	args: {
 		open: false,
 		title: 'Lorem ipsum',
+		key: 'storybook-dialog',
 	},
 	render: function Render(args) {
 		const [{ open }, updateArgs] = useArgs();
@@ -33,10 +34,7 @@ export const Default: Story = {
 				{...args}
 				triggerArea={
 					<>
-						<GivingBlockIcon
-							fill={theme.palette.midnightPurple.main}
-							width={60}
-						/>
+						<GivingBlockIcon fill={theme.palette.midnightPurple.main} width={60} />
 						<Box
 							sx={{
 								display: 'flex',
@@ -44,9 +42,7 @@ export const Default: Story = {
 							}}
 						>
 							<Typography variant="h2">The giving block</Typography>
-							<Typography variant="body1">
-								Set up your donation goal!
-							</Typography>
+							<Typography variant="body1">Set up your donation goal!</Typography>
 						</Box>
 					</>
 				}

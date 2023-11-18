@@ -19,6 +19,7 @@ export const DonationDialogHeader = () => {
 				sx={{
 					display: 'flex',
 					flexDirection: 'column',
+					gap: theme.spacing(1),
 				}}
 			>
 				<MuiTypography variant="h2">{formatMessage({ id: 'donation_dialog.title' })}</MuiTypography>

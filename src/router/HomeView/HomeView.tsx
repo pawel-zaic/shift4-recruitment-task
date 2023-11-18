@@ -19,7 +19,11 @@ export const HomeView = () => {
 					{formatMessage({ id: 'open_dialog_button.label' })}
 				</AppButton>
 			</Box>
-			<DonationDialog open={isDialogOpen} handleClose={() => setIsDialogOpen(false)} />
+			<DonationDialog
+				keyId="donation-dialog"
+				open={isDialogOpen}
+				handleClose={() => setIsDialogOpen(false)}
+			/>
 		</>
 	);
 };
