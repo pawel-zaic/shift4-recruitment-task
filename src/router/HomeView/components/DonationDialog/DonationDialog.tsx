@@ -34,9 +34,9 @@ export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) =
 	const amount = parseCurrencyToNumber(watch('value', '0'));
 	const month = watch('date');
 
-	const submitData = useMemo(
-		(): DonationDialogSummaryProps['submitData'] => ({
-			totalAmount: amount * (differenceInCalendarMonths(month, new Date()) + 1),
+	const summaryData = useMemo(
+		(): DonationDialogSummaryProps['summaryData'] => ({
+			totalAmount: amount * differenceInCalendarMonths(month, new Date()),
 			lastMonth: format(month, 'MMMM yyyy'),
 		}),
 		[month, amount],
@@ -75,7 +75,7 @@ export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) =
 				<DonationDialogSummary
 					amount={amount}
 					month={month}
-					submitData={submitData}
+					summaryData={summaryData}
 					sx={{
 						marginTop: theme.spacing(10),
 						marginBottom: theme.spacing(8),
@@ -106,7 +106,13 @@ export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) =
 						fullWidth
 						aria-label={formatMessage({ id: 'donation_dialog.submit_button.label' })}
 						onClick={handleSubmit((data) => {
-							console.log(data);
+							const submitData = {
+								monthlyAmount: parseCurrencyToNumber(data.value),
+								lastMonth: format(month, 'MMMM yyyy'),
+							};
+
+							console.log(submitData);
+
 							handleClose && handleClose();
 							reset();
 						})}

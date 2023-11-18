@@ -5,13 +5,13 @@ import { useIntl, FormattedNumber } from 'react-intl';
 export type DonationDialogSummaryProps = MuiBoxProps & {
 	amount: number;
 	month: Date;
-	submitData: {
+	summaryData: {
 		totalAmount: number;
 		lastMonth: string;
 	};
 };
 
-export const DonationDialogSummary = ({ amount, submitData, sx }: DonationDialogSummaryProps) => {
+export const DonationDialogSummary = ({ amount, summaryData, sx }: DonationDialogSummaryProps) => {
 	const { formatMessage } = useIntl();
 
 	return (
@@ -71,7 +71,7 @@ export const DonationDialogSummary = ({ amount, submitData, sx }: DonationDialog
 					}}
 				>
 					<FormattedNumber
-						value={submitData.totalAmount}
+						value={summaryData.totalAmount}
 						style="currency"
 						currency="USD"
 						minimumFractionDigits={0}
@@ -127,7 +127,7 @@ export const DonationDialogSummary = ({ amount, submitData, sx }: DonationDialog
 										color: theme.palette.blueGray.main,
 									}}
 								>
-									{submitData.lastMonth}
+									{summaryData.lastMonth}
 								</MuiTypography>
 							),
 						},

@@ -71,7 +71,7 @@ describe('DonationDialog', () => {
 		fireEvent.click(nextButton);
 
 		// ASSERT
-		expect(totalAmountValue).toHaveTextContent('$300');
+		expect(totalAmountValue).toHaveTextContent('$200');
 		expect(getByText(/You will be sending/)).toBeInTheDocument();
 		expect(getByText(/\$100/)).toBeInTheDocument();
 		expect(getByText(/every month, until/)).toBeInTheDocument();
@@ -92,7 +92,8 @@ describe('DonationDialog', () => {
 		const nextButton = within(dateInput).getByLabelText('Next');
 
 		// ACT
-		fireEvent.change(valueInput, { target: { value: '100' } });
+		fireEvent.change(valueInput, { target: { value: '100.50' } });
+		fireEvent.click(nextButton);
 		fireEvent.click(nextButton);
 		fireEvent.click(nextButton);
 
@@ -102,7 +103,7 @@ describe('DonationDialog', () => {
 
 		// ASSERT
 		expect(logSpy).toHaveBeenCalled();
-		expect(logSpy).toHaveBeenCalledWith({ value: '100', date: expect.any(Date) });
+		expect(logSpy).toHaveBeenCalledWith({ monthlyAmount: 100.5, lastMonth: 'February 2024' });
 
 		logSpy.mockRestore();
 	});
