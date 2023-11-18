@@ -14,9 +14,9 @@ type Story = StoryObj<typeof CurrencyInput>;
 
 export const Default: Story = {
 	args: {
-		name: 'Name',
 		label: 'I can donate',
 		placeholder: '0.00',
+		id: 'storybook-component',
 	},
 	render: function Render(args) {
 		const [currencyValue, setCurrencyValue] = useState<string>('');
