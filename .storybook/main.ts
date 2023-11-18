@@ -41,6 +41,10 @@ const config: StorybookConfig = {
 						find: '@web/utils',
 						replacement: path.resolve(__dirname, '../src/utils'),
 					},
+					{
+						find: '@web/styles',
+						replacement: path.resolve(__dirname, '../src/styles'),
+					},
 				],
 			},
 			define: {

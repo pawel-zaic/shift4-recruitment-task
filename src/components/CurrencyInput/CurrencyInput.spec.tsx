@@ -16,6 +16,7 @@ describe('CurrencyInput', () => {
 				onChange={onChange}
 				label="Currency"
 				placeholder="Enter currency"
+				id="rtl-test"
 			/>,
 		);
 
@@ -31,6 +32,7 @@ describe('CurrencyInput', () => {
 				onChange={onChange}
 				label="Currency"
 				placeholder="Enter currency"
+				id="rtl-test"
 			/>,
 		);
 
