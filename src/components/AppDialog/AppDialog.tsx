@@ -1,6 +1,9 @@
-import { DialogProps as MuiDialogProps, useMediaQuery } from '@mui/material';
 import { ReactNode } from 'react';
+
+import { DialogProps as MuiDialogProps, useMediaQuery } from '@mui/material';
+
 import { theme } from '@web/lib';
+
 import { StyledDialog, StyledDialogContent } from './AppDialog.styled';
 import { AppDialogTriggerArea } from './components/AppDialogTriggerArea';
 

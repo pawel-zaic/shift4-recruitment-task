@@ -1,11 +1,13 @@
-import { Container } from '@mui/material';
 import { ReactNode } from 'react';
+
+import { Container } from '@mui/material';
+
 import { Navbar } from '@web/components';
 import { theme } from '@web/lib';
 
-interface MainTemplateProps {
+type MainTemplateProps = {
 	children: ReactNode;
-}
+};
 
 export const MainTemplate = ({ children }: MainTemplateProps) => (
 	<Container

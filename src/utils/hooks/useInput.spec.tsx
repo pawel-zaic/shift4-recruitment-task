@@ -1,4 +1,5 @@
 import { ChangeEvent } from 'react';
+
 import { useInput } from './useInput';
 
 describe('useInput', () => {

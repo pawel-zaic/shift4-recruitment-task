@@ -1,7 +1,9 @@
+import { useIntl } from 'react-intl';
+
 import { Box as MuiBox, Typography as MuiTypography } from '@mui/material';
+
 import { GivingBlockIcon } from '@web/assets';
 import { theme } from '@web/lib';
-import { useIntl } from 'react-intl';
 
 export const DonationDialogHeader = () => {
 	const { formatMessage } = useIntl();

@@ -1,7 +1,8 @@
+import { useState } from 'react';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { MonthPicker } from '@web/components';
-import { useState } from 'react';
 
 const meta: Meta<typeof MonthPicker> = {
 	title: 'Components/MonthPicker',

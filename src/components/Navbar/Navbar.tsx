@@ -1,6 +1,8 @@
 import { BoxProps as MuiBoxProps } from '@mui/material';
+
 import { LogoIcon } from '@web/assets';
 import { theme } from '@web/lib';
+
 import { StyledNavbar } from './Navbar.styled';
 
 type NavbarProps = MuiBoxProps;

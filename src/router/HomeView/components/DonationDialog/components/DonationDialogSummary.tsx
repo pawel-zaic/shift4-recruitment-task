@@ -1,6 +1,8 @@
-import { theme } from '@web/lib';
-import { Box as MuiBox, BoxProps as MuiBoxProps, Typography as MuiTypography } from '@mui/material';
 import { useIntl, FormattedNumber } from 'react-intl';
+
+import { Box as MuiBox, BoxProps as MuiBoxProps, Typography as MuiTypography } from '@mui/material';
+
+import { theme } from '@web/lib';
 
 export type DonationDialogSummaryProps = MuiBoxProps & {
 	amount: number;

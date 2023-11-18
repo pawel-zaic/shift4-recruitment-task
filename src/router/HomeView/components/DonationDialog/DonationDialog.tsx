@@ -1,18 +1,21 @@
-import { AppButton, AppDialog, AppDialogProps, CurrencyInput, MonthPicker } from '@web/components';
-import { Box as MuiBox, useMediaQuery } from '@mui/material';
+import { useMemo } from 'react';
 import { useIntl } from 'react-intl';
+import { useForm, Controller } from 'react-hook-form';
+import { differenceInCalendarMonths, format } from 'date-fns';
+
+import { Box as MuiBox, useMediaQuery } from '@mui/material';
+
+import { AppButton, AppDialog, AppDialogProps, CurrencyInput, MonthPicker } from '@web/components';
 import { theme } from '@web/lib';
 import { StyledDialogActions } from '@web/components/AppDialog/AppDialog.styled';
-import { useForm, Controller } from 'react-hook-form';
-import { useMemo } from 'react';
-import { differenceInCalendarMonths, format } from 'date-fns';
 import { useCurrency } from '@web/utils';
+
 import { DonationDialogHeader } from './components/DonationDialogHeader';
-import { StyledFormFields } from './DonationDialog.styled';
 import {
 	DonationDialogSummary,
 	DonationDialogSummaryProps,
 } from './components/DonationDialogSummary';
+import { StyledFormFields } from './DonationDialog.styled';
 
 type DonationDialogProps = AppDialogProps;
 type DonationForm = {

@@ -6,10 +6,10 @@ import { theme } from '@web/lib';
 
 import { StyledTriggerArea } from './AppDialogTriggerArea.styled';
 
-interface AppDialogTriggerArea extends MuiBoxProps {
+type AppDialogTriggerArea = MuiBoxProps & {
 	handleClose?: () => void;
 	children?: ReactNode;
-}
+};
 
 export const AppDialogTriggerArea = ({ handleClose, children, ...props }: AppDialogTriggerArea) => {
 	const showCloseButton = !useMediaQuery(theme.breakpoints.up('sm'));

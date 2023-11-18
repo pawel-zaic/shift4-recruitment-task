@@ -1,9 +1,12 @@
 import { useMemo } from 'react';
+import { useIntl } from 'react-intl';
 import { format, addMonths, subMonths, differenceInCalendarMonths } from 'date-fns';
+
 import { FormControl as MuiFormControl, BoxProps as MuiBoxProps } from '@mui/material';
+
 import { ChevronLeftIcon, ChevronRightIcon } from '@web/assets';
 import { AppIconButton, StyledInputLabel } from '@web/components';
-import { useIntl } from 'react-intl';
+
 import {
 	StyledMonthPicker,
 	StyledDateValueInfo,

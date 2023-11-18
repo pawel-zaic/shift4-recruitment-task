@@ -7,7 +7,7 @@ export const StyledCurrencyInputTextField = styled(MuiTextField)(({ theme }) => 
 		...sharedInputStyles.root,
 		fontSize: theme.spacing(6),
 		fontWeight: 600,
-		padding: `${theme.spacing(4)} ${theme.spacing(4)} ${theme.spacing(4)} ${theme.spacing(2)}`,
+		padding: theme.spacing(4, 4, 4, 2),
 		border: 'none',
 		'& fieldset': {
 			borderColor: theme.palette.blueGray.light,
@@ -21,7 +21,7 @@ export const StyledCurrencyInputTextField = styled(MuiTextField)(({ theme }) => 
 		},
 	},
 	'& .MuiInputBase-input': {
-		padding: `${theme.spacing(0)} ${theme.spacing(0)} ${theme.spacing(0)} ${theme.spacing(2)}`,
+		padding: theme.spacing(0, 0, 0, 2),
 		height: theme.spacing(7),
 		color: theme.palette.purpleGray.main,
 	},

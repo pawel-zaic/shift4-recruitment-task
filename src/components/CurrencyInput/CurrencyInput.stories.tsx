@@ -1,11 +1,13 @@
+import { useState } from 'react';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { CurrencyInput } from '@web/components';
-import { useState } from 'react';
 
 const meta: Meta<typeof CurrencyInput> = {
 	title: 'Components/CurrencyInput',
 	component: CurrencyInput,
+	tags: ['autodocs'],
 };
 
 export default meta;

@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import { addMonths } from 'date-fns';
 
 import { MonthPicker } from './MonthPicker';
+
 describe('MonthPicker', () => {
 	const handleChange = jest.fn();
 
