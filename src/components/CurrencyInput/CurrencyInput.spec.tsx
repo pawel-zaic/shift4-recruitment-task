@@ -4,41 +4,48 @@ import '@testing-library/jest-dom';
 import { CurrencyInput } from './CurrencyInput';
 
 describe('CurrencyInput', () => {
-	const onChange = jest.fn();
+	const handleChange = jest.fn();
 
 	afterEach(() => {
 		jest.clearAllMocks();
 	});
-	test('should render the component', () => {
-		const { getByLabelText } = render(
+
+	it('should render the component', () => {
+		// ARRANGE
+		const { getByRole } = render(
 			<CurrencyInput
 				value=""
-				onChange={onChange}
+				onChange={handleChange}
 				label="Currency"
 				placeholder="Enter currency"
-				id="rtl-test"
 			/>,
 		);
 
-		const inputElement = getByLabelText('Currency');
+		const inputElement = getByRole('textbox', { name: /currency/i });
 
+		// ACT
+
+		// ASSERT
 		expect(inputElement).toBeInTheDocument();
 	});
 
-	test('should call onChange function when input value changes', () => {
-		const { getByLabelText } = render(
+	it('should call onChange function when input value changes', () => {
+		// ARRANGE
+		const { getByRole } = render(
 			<CurrencyInput
 				value=""
-				onChange={onChange}
+				onChange={handleChange}
 				label="Currency"
 				placeholder="Enter currency"
-				id="rtl-test"
 			/>,
 		);
 
-		const inputElement = getByLabelText('Currency');
+		const inputElement = getByRole('textbox', { name: /currency/i });
+
+		// ACT
 		fireEvent.change(inputElement, { target: { value: '1000a000' } });
 
-		expect(onChange).toHaveBeenCalledWith('1000000');
+		// ASSERT
+		expect(handleChange).toHaveBeenCalledWith('1,000,000');
 	});
 });

@@ -1,14 +1,15 @@
+import { ChangeEvent } from 'react';
 import { FormControl, TextFieldProps as MuiTextFieldProps } from '@mui/material';
 
 import { DollarIcon } from '@web/assets';
+import { StyledInputLabel } from '@web/components';
 import { theme } from '@web/lib';
-import { useInput } from '@web/utils';
+import { useCurrency, useInput } from '@web/utils';
 
-import { StyledCurrencyInputTextField, StyledInputLabel } from './CurrencyInput.styled';
+import { StyledCurrencyInputTextField } from './CurrencyInput.styled';
 
-type CurrencyInputProps = Omit<MuiTextFieldProps, 'onChange' | 'id'> & {
+type CurrencyInputProps = Omit<MuiTextFieldProps, 'onChange'> & {
 	value: string;
-	id: string;
 	onChange: (value: string) => void;
 };
 
@@ -17,33 +18,42 @@ export const CurrencyInput = ({
 	onChange,
 	label,
 	placeholder,
-	id,
 	...props
 }: CurrencyInputProps) => {
 	const { allowOnlyNumberInput } = useInput();
-	const formatter = new Intl.NumberFormat('en-US');
+	const { formatAsCurrency } = useCurrency();
+
+	const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+		// Remove non-numeric and non-dot characters
+		const numericValue = allowOnlyNumberInput(event);
+
+		// Format the value as a currency
+		const formattedValue = formatAsCurrency(numericValue);
+
+		onChange(formattedValue);
+	};
 
 	return (
 		<FormControl>
-			<StyledInputLabel htmlFor={id}>{label}</StyledInputLabel>
-			<StyledCurrencyInputTextField
-				id={id}
-				InputProps={{
-					startAdornment: (
-						<DollarIcon
-							fill={theme.palette.midnightGray.main}
-							sx={{ fontSize: theme.spacing(6) }}
-						/>
-					),
-				}}
-				InputLabelProps={{ shrink: true }}
-				placeholder={placeholder}
-				value={value && formatter.format(+value)}
-				onChange={(value) => {
-					onChange(value.target.value ? `${Number(allowOnlyNumberInput(value))}` : '');
-				}}
-				{...props}
-			/>
+			<StyledInputLabel>
+				{label}
+				<StyledCurrencyInputTextField
+					InputProps={{
+						startAdornment: (
+							<DollarIcon
+								fill={theme.palette.midnightGray.main}
+								sx={{ fontSize: theme.spacing(6) }}
+							/>
+						),
+					}}
+					inputProps={{ maxLength: 12 }}
+					InputLabelProps={{ shrink: true }}
+					placeholder={placeholder}
+					value={value}
+					onChange={handleInputChange}
+					{...props}
+				/>
+			</StyledInputLabel>
 		</FormControl>
 	);
 };

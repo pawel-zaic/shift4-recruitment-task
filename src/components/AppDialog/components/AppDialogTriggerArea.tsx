@@ -11,12 +11,8 @@ interface AppDialogTriggerArea extends MuiBoxProps {
 	children?: ReactNode;
 }
 
-export const AppDialogTriggerArea = ({
-	handleClose,
-	children,
-	...props
-}: AppDialogTriggerArea) => {
-	const showCloseButton = !useMediaQuery(theme.breakpoints.up('md'));
+export const AppDialogTriggerArea = ({ handleClose, children, ...props }: AppDialogTriggerArea) => {
+	const showCloseButton = !useMediaQuery(theme.breakpoints.up('sm'));
 
 	return (
 		<StyledTriggerArea {...props}>

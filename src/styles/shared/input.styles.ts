@@ -2,14 +2,22 @@ import { theme } from '@web/lib';
 
 export const sharedInputStyles = {
 	root: {
-		marginTop: theme.spacing(6),
 		borderRadius: 4,
 		border: '1px solid',
-		borderColor: theme.palette.blueGray.light,
 		width: 'auto',
-
 		backgroundColor: theme.palette.white.main,
-
 		transition: theme.transitions.create(['border-color', 'background-color', 'box-shadow']),
+	},
+	label: {
+		fontWeight: theme.typography.fontWeightMedium,
+		fontSize: 14,
+		lineHeight: 1.25,
+		fontFamily: '"Work Sans", Inter',
+		color: theme.palette.midnightGray.main,
+		transform: 'none',
+		display: 'flex',
+		flexDirection: 'column',
+		position: 'static',
+		gap: theme.spacing(2),
 	},
 };

@@ -7,6 +7,7 @@ export const StyledMonthPicker = styled(MuiBox)(({ theme }) => ({
 	display: 'flex',
 	alignItems: 'center',
 	gap: theme.spacing(4),
+	borderColor: theme.palette.blueGray.light,
 }));
 
 export const StyledDateValueInfo = styled(MuiBox)(({ theme }) => ({

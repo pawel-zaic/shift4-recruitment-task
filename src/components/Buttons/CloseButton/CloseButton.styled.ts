@@ -7,4 +7,5 @@ export const StyledCloseButton = styled(AppIconButton)(({ theme }) => ({
 	top: theme.spacing(2),
 	height: theme.spacing(10),
 	width: theme.spacing(10),
+	fill: theme.palette.purpleGray.main,
 }));

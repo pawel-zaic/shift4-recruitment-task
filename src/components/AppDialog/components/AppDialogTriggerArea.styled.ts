@@ -9,7 +9,7 @@ export const StyledTriggerArea = styled(MuiBox)(({ theme }) => ({
 	alignItems: 'center',
 	gap: theme.spacing(4),
 
-	[theme.breakpoints.up('md')]: {
+	[theme.breakpoints.up('sm')]: {
 		padding: `${theme.spacing(8)} ${theme.spacing(10)} ${theme.spacing(6)}`,
 		flexDirection: 'row',
 		gap: theme.spacing(5),
