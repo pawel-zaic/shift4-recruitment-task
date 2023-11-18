@@ -1,3 +1,12 @@
 {
-	"app.title": "Test App"
+	"app.title": "Natur.ally",
+	"donation_dialog.title": "The giving block",
+	"donation_dialog.subtitle": "Set up your donation goal!",
+	"donation_dialog.money_input.label": "I can donate",
+	"donation_dialog.money_input.placeholder": "0.00",
+	"donation_dialog.date_input.label": "Every month until",
+	"donation_dialog.total_amount": "Total amount",
+	"donation_dialog.summary": "You will be sending {value} every month, until {date}. Thank you!",
+	"donation_dialog.cancel_button.label": "Cancel",
+	"donation_dialog.submit_button.label": "Continue"
 }

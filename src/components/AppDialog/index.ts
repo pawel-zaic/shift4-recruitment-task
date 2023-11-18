@@ -1,1 +1,1 @@
-export { AppDialog } from './AppDialog';
+export * from './AppDialog';
