@@ -82,7 +82,14 @@ export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) =
 						},
 					}}
 				/>
-				<StyledDialogActions>
+				<StyledDialogActions
+					sx={{
+						margin: theme.spacing(0, 2),
+						[theme.breakpoints.up('sm')]: {
+							margin: 0,
+						},
+					}}
+				>
 					{useMediaQuery(theme.breakpoints.up('sm')) && (
 						<AppButton
 							fullWidth

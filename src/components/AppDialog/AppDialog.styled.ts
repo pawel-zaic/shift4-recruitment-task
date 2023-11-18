@@ -31,9 +31,13 @@ export const StyledDialogContent = styled(MuiDialogContent)(({ theme }) => ({
 export const StyledDialogActions = styled(MuiDialogActions)(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'column',
-	gap: theme.spacing(7),
+	gap: theme.spacing(6),
 	padding: 0,
 	[theme.breakpoints.up('sm')]: {
 		flexDirection: 'row',
+	},
+
+	'& > .MuiButton-root': {
+		margin: theme.spacing(2),
 	},
 }));

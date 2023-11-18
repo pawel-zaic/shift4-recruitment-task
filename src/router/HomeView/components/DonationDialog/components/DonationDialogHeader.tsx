@@ -8,7 +8,13 @@ export const DonationDialogHeader = () => {
 
 	return (
 		<>
-			<GivingBlockIcon fill={theme.palette.midnightPurple.main} width={60} />
+			<GivingBlockIcon
+				sx={{
+					fill: theme.palette.midnightPurple.main,
+					width: 72,
+					height: 'auto',
+				}}
+			/>
 			<MuiBox
 				sx={{
 					display: 'flex',
