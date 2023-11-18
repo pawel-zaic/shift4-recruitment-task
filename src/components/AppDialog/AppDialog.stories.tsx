@@ -22,7 +22,7 @@ export const Default: Story = {
 		key: 'storybook-dialog',
 	},
 	render: function Render(args) {
-		const [{ open }, updateArgs] = useArgs();
+		const [, updateArgs] = useArgs();
 
 		const handleClose = () => {
 			updateArgs({ open: false });
