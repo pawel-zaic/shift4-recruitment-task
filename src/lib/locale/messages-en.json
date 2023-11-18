@@ -9,5 +9,7 @@
 	"donation_dialog.total_amount": "Total amount",
 	"donation_dialog.summary": "You will be sending {name} every month, until {date}. Thank you!",
 	"donation_dialog.cancel_button.label": "Cancel",
-	"donation_dialog.submit_button.label": "Continue"
+	"donation_dialog.submit_button.label": "Continue",
+	"button.next": "Next",
+	"button.previous": "Previous"
 }

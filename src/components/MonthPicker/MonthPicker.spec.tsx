@@ -11,43 +11,58 @@ describe('MonthPicker', () => {
 		jest.clearAllMocks();
 	});
 
-	test('renders the label correctly', () => {
+	it('renders the label correctly', () => {
+		// ARRANGE
 		const { getByLabelText } = render(
-			<MonthPicker label="Month" value={new Date()} id="month-picker" onChange={handleChange} />,
+			<MonthPicker label="Month" value={new Date()} onChange={handleChange} />,
 		);
 		const label = getByLabelText('Month');
+
+		// ACT
+
+		// ASSERT
 		expect(label).toBeInTheDocument();
 	});
 
-	test('calls handleChange with the previous month when the previous button is clicked', () => {
+	it('calls handleChange with the previous month when the previous button is clicked', () => {
+		// ARRANGE
 		const { getByLabelText } = render(
-			<MonthPicker
-				label="Month"
-				value={addMonths(new Date(), 1)}
-				id="month-picker"
-				onChange={handleChange}
-			/>,
+			<MonthPicker label="Month" value={addMonths(new Date(), 1)} onChange={handleChange} />,
 		);
-		const previousButton = getByLabelText('previous');
+		const previousButton = getByLabelText('Previous');
+
+		// ACT
 		fireEvent.click(previousButton);
+
+		// ASSERT
 		expect(handleChange).toHaveBeenCalledWith(expect.any(Date));
 	});
 
-	test("doesn't call handleChange with the previous month when the previous button is clicked and new value is in the past", () => {
+	it("doesn't call handleChange with the previous month when the previous button is clicked and new value is in the past", () => {
+		// ARRANGE
 		const { getByLabelText } = render(
-			<MonthPicker label="Month" value={new Date()} id="month-picker" onChange={handleChange} />,
+			<MonthPicker label="Month" value={new Date()} onChange={handleChange} />,
 		);
-		const previousButton = getByLabelText('previous');
+		const previousButton = getByLabelText('Previous');
+
+		// ACT
 		fireEvent.click(previousButton);
+
+		// ASSERT
 		expect(handleChange).not.toHaveBeenCalled();
 	});
 
-	test('calls handleChange with the next month when the next button is clicked', () => {
+	it('calls handleChange with the next month when the next button is clicked', () => {
+		// ARRANGE
 		const { getByLabelText } = render(
-			<MonthPicker label="Month" value={new Date()} id="month-picker" onChange={handleChange} />,
+			<MonthPicker label="Month" value={new Date()} onChange={handleChange} />,
 		);
-		const nextButton = getByLabelText('next');
+		const nextButton = getByLabelText('Next');
+
+		// ACT
 		fireEvent.click(nextButton);
+
+		// ASSERT
 		expect(handleChange).toHaveBeenCalledWith(expect.any(Date));
 	});
 });

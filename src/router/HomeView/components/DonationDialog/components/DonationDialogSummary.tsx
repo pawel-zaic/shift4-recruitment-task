@@ -3,7 +3,7 @@ import { Box as MuiBox, BoxProps as MuiBoxProps, Typography as MuiTypography } f
 import { useIntl, FormattedNumber } from 'react-intl';
 
 export type DonationDialogSummaryProps = MuiBoxProps & {
-	amount: string;
+	amount: number;
 	month: Date;
 	submitData: {
 		totalAmount: number;
@@ -110,7 +110,7 @@ export const DonationDialogSummary = ({ amount, submitData, sx }: DonationDialog
 									}}
 								>
 									<FormattedNumber
-										value={+amount}
+										value={amount}
 										style="currency"
 										currency="USD"
 										minimumFractionDigits={0}

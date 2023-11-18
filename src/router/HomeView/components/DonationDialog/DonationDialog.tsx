@@ -6,6 +6,7 @@ import { StyledDialogActions } from '@web/components/AppDialog/AppDialog.styled'
 import { useForm, Controller } from 'react-hook-form';
 import { useMemo } from 'react';
 import { differenceInCalendarMonths, format } from 'date-fns';
+import { useCurrency } from '@web/utils';
 import { DonationDialogHeader } from './components/DonationDialogHeader';
 import { StyledFormFields } from './DonationDialog.styled';
 import {
@@ -21,6 +22,7 @@ type DonationForm = {
 
 export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) => {
 	const { formatMessage } = useIntl();
+	const { parseCurrencyToNumber } = useCurrency();
 
 	const { handleSubmit, control, watch, reset } = useForm<DonationForm>({
 		defaultValues: {
@@ -29,12 +31,12 @@ export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) =
 		},
 	});
 
-	const amount = watch('value', '0');
+	const amount = parseCurrencyToNumber(watch('value', '0'));
 	const month = watch('date');
 
 	const submitData = useMemo(
 		(): DonationDialogSummaryProps['submitData'] => ({
-			totalAmount: +amount * (differenceInCalendarMonths(month, new Date()) + 1),
+			totalAmount: amount * (differenceInCalendarMonths(month, new Date()) + 1),
 			lastMonth: format(month, 'MMMM yyyy'),
 		}),
 		[month, amount],

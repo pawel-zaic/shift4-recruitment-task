@@ -1,4 +1,4 @@
-import { TextField as MuiTextField, InputLabel as MuiInputLabel, styled } from '@mui/material';
+import { TextField as MuiTextField, styled } from '@mui/material';
 
 import { sharedInputStyles } from '@web/styles';
 
@@ -25,13 +25,4 @@ export const StyledCurrencyInputTextField = styled(MuiTextField)(({ theme }) => 
 		height: theme.spacing(7),
 		color: theme.palette.purpleGray.main,
 	},
-}));
-
-export const StyledInputLabel = styled(MuiInputLabel)(({ theme }) => ({
-	fontWeight: theme.typography.fontWeightMedium,
-	fontSize: 14,
-	lineHeight: 1.25,
-	fontFamily: '"Work Sans", Inter',
-	color: theme.palette.midnightGray.main,
-	transform: 'none',
 }));
