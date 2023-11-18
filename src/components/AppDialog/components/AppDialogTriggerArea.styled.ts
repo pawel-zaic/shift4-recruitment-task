@@ -1,7 +1,7 @@
 import { Box as MuiBox, styled } from '@mui/material';
 
 export const StyledTriggerArea = styled(MuiBox)(({ theme }) => ({
-	padding: `${theme.spacing(4)} ${theme.spacing(6)} ${theme.spacing(7)}`,
+	padding: theme.spacing(4, 6, 7),
 	position: 'relative',
 	backgroundColor: theme.palette.salmon.main,
 	display: 'flex',
@@ -10,7 +10,7 @@ export const StyledTriggerArea = styled(MuiBox)(({ theme }) => ({
 	gap: theme.spacing(4),
 
 	[theme.breakpoints.up('sm')]: {
-		padding: `${theme.spacing(8)} ${theme.spacing(10)} ${theme.spacing(6)}`,
+		padding: theme.spacing(8, 10, 6),
 		flexDirection: 'row',
 		gap: theme.spacing(5),
 	},

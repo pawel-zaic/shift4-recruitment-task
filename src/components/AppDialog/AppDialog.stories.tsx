@@ -9,6 +9,7 @@ import { theme } from '@web/lib';
 const meta: Meta<typeof AppDialog> = {
 	title: 'Components/AppDialog',
 	component: AppDialog,
+	tags: ['autodocs'],
 };
 
 export default meta;

@@ -1,8 +1,11 @@
-import { Box, Typography } from '@mui/material';
-import { useIntl } from 'react-intl';
-import { visuallyHidden } from '@mui/utils';
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
+
+import { Box, Typography } from '@mui/material';
+import { visuallyHidden } from '@mui/utils';
+
 import { AppButton } from '@web/components';
+
 import { DonationDialog } from './components/DonationDialog/DonationDialog';
 
 export const HomeView = () => {

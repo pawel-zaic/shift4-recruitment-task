@@ -1,6 +1,7 @@
+import { set } from 'date-fns';
+
 import { render, fireEvent, within, act } from '@web/utils/test-utils/customRender';
 import '@testing-library/jest-dom';
-import { set } from 'date-fns';
 
 import { DonationDialog } from './DonationDialog';
 

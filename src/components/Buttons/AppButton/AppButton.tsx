@@ -1,10 +1,12 @@
-import { ButtonProps as MuiButtonProps } from '@mui/material';
 import { ReactElement } from 'react';
+
+import { ButtonProps as MuiButtonProps } from '@mui/material';
+
 import { StyledAppButton } from './AppButton.styled';
 
-interface AppButtonProps extends MuiButtonProps {
+type AppButtonProps = MuiButtonProps & {
 	icon?: ReactElement | null;
-}
+};
 
 export const AppButton = ({ icon = null, children, ...props }: AppButtonProps) => (
 	<StyledAppButton

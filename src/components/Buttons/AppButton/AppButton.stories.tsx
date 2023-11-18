@@ -5,6 +5,7 @@ import { AppButton } from './AppButton';
 const meta: Meta<typeof AppButton> = {
 	title: 'Components/Buttons/AppButton',
 	component: AppButton,
+	tags: ['autodocs'],
 };
 
 export default meta;

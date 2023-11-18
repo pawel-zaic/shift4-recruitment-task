@@ -1,4 +1,5 @@
 import { Box as MuiBox, Typography as MuiTypography, styled } from '@mui/material';
+
 import { sharedInputStyles } from '@web/styles';
 
 export const StyledMonthPicker = styled(MuiBox)(({ theme }) => ({

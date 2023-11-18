@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { ChevronLeftIcon } from '@web/assets';
 import { theme } from '@web/lib';
+
 import { AppIconButton } from './AppIconButton';
 
 const meta: Meta<typeof AppIconButton> = {

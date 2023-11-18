@@ -1,4 +1,5 @@
 import { styled } from '@mui/material';
+
 import { AppIconButton } from '../AppIconButton';
 
 export const StyledCloseButton = styled(AppIconButton)(({ theme }) => ({

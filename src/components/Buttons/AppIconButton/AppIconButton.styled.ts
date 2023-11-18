@@ -5,7 +5,7 @@ export const StyledIconButton = styled(MuiIconButton)(({ theme }) => ({
 	borderRadius: theme.spacing(1),
 	height: theme.spacing(6),
 	width: theme.spacing(6),
-	padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
+	padding: theme.spacing(1, 2),
 
 	'&:disabled': {
 		fill: theme.palette.blueGray.light,

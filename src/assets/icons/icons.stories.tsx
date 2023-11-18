@@ -1,6 +1,8 @@
 import { Box, Stack } from '@mui/system';
-import { theme } from '@web/lib';
 import { Typography } from '@mui/material';
+
+import { theme } from '@web/lib';
+
 import * as Icons from './index';
 
 const IconsEntries = Object.entries(Icons);
