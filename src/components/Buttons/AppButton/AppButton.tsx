@@ -8,14 +8,14 @@ type AppButtonProps = MuiButtonProps & {
 	icon?: ReactElement | null;
 };
 
-export const AppButton = ({ icon = null, children, ...props }: AppButtonProps) => (
+export const AppButton = ({ icon = null, children, onClick, ...props }: AppButtonProps) => (
 	<StyledAppButton
+		{...props}
 		color="primary"
 		variant="contained"
 		disableElevation
 		disableRipple
-		{...props}
-		onClick={props.onClick}
+		onClick={onClick}
 	>
 		{icon}
 		{children}

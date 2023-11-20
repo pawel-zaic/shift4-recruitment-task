@@ -38,6 +38,8 @@ export const CurrencyInput = ({
 			<StyledInputLabel>
 				{label}
 				<StyledCurrencyInputTextField
+					inputProps={{ maxLength: 12 }}
+					InputLabelProps={{ shrink: true }}
 					InputProps={{
 						startAdornment: (
 							<DollarIcon
@@ -46,12 +48,10 @@ export const CurrencyInput = ({
 							/>
 						),
 					}}
-					inputProps={{ maxLength: 12 }}
-					InputLabelProps={{ shrink: true }}
+					{...props}
 					placeholder={placeholder}
 					value={value}
 					onChange={handleInputChange}
-					{...props}
 				/>
 			</StyledInputLabel>
 		</FormControl>

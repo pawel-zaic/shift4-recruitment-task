@@ -9,7 +9,9 @@
 - `npm run dev`
 - Visit [http://localhost:5173/](http://localhost:5173/) in your browser
 - You can run storybook, with `npm run storybook` and visit [http://localhost:6006](http://localhost:6006)
-  <br />
-  <br />
-  <br />
-  ![Multi devices mockups](screenshot.png)
+
+### Showcase
+
+[Live Demo](https://master.d385qvd5hgsk1e.amplifyapp.com/)
+
+![Multi devices mockups](screenshot.png)

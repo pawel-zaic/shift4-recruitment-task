@@ -24,12 +24,12 @@ export const AppDialog = ({
 	const fullScreen = !useMediaQuery(theme.breakpoints.up('sm'));
 	return (
 		<StyledDialog
+			{...props}
 			open={open}
 			fullScreen={fullScreen}
 			onClose={handleClose}
 			aria-labelledby={`dialog-title--${keyId}`}
 			aria-describedby={`dialog-content--${keyId}`}
-			{...props}
 		>
 			{triggerArea && (
 				<AppDialogTriggerArea id={`dialog-title--${keyId}`} key={keyId} handleClose={handleClose}>

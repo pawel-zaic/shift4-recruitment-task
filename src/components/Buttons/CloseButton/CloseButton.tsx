@@ -5,8 +5,8 @@ import { StyledCloseButton } from './CloseButton.styled';
 
 type CloseButtonProps = AppIconButtonProps;
 
-export const CloseButton = ({ onClick, ...props }: CloseButtonProps) => (
-	<StyledCloseButton aria-label="close" onClick={onClick} {...props}>
+export const CloseButton = ({ ...props }: CloseButtonProps) => (
+	<StyledCloseButton {...props} aria-label="close">
 		<CloseIcon />
 	</StyledCloseButton>
 );
