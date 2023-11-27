@@ -1,4 +1,4 @@
-export * from './currency/DollarIcon';
+export * from './currency';
 
 export * from './GivingBlockIcon';
 export * from './LogoIcon';

@@ -4,6 +4,12 @@ export const StyledFormFields = styled(MuiBox)(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	gap: theme.spacing(4),
+}));
+
+export const StyledFormRow = styled(MuiBox)(({ theme }) => ({
+	display: 'flex',
+	flexDirection: 'column',
+	gap: theme.spacing(4),
 
 	[theme.breakpoints.up('sm')]: {
 		flexDirection: 'row',

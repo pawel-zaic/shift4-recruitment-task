@@ -14,6 +14,7 @@ describe('CurrencyInput', () => {
 		// ARRANGE
 		const { getByRole } = render(
 			<CurrencyInput
+				currency="usd"
 				value=""
 				onChange={handleChange}
 				label="Currency"
@@ -33,6 +34,7 @@ describe('CurrencyInput', () => {
 		// ARRANGE
 		const { getByRole } = render(
 			<CurrencyInput
+				currency="usd"
 				value=""
 				onChange={handleChange}
 				label="Currency"
