@@ -55,7 +55,7 @@ export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) =
 			totalAmount: amount * differenceInCalendarMonths(month, new Date()),
 			lastMonth: format(month, 'MMMM yyyy'),
 		}),
-		[month, amount],
+		[month, amount, currency],
 	);
 
 	return (
@@ -146,6 +146,7 @@ export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) =
 							const submitData = {
 								monthlyAmount: parseCurrencyToNumber(data.value),
 								lastMonth: format(month, 'MMMM yyyy'),
+								currency: OCurrencyName[currency as keyof typeof OCurrencyName],
 							};
 
 							console.log(submitData);

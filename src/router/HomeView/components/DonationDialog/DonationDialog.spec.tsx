@@ -104,7 +104,11 @@ describe('DonationDialog', () => {
 
 		// ASSERT
 		expect(logSpy).toHaveBeenCalled();
-		expect(logSpy).toHaveBeenCalledWith({ monthlyAmount: 100.5, lastMonth: 'February 2024' });
+		expect(logSpy).toHaveBeenCalledWith({
+			monthlyAmount: 100.5,
+			lastMonth: 'February 2024',
+			currency: 'Dollars',
+		});
 
 		logSpy.mockRestore();
 	});
