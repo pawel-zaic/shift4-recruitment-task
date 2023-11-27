@@ -1,4 +1,4 @@
-import { ChangeEvent, useMemo } from 'react';
+import { ChangeEvent } from 'react';
 import { Box, FormControl, TextFieldProps as MuiTextFieldProps } from '@mui/material';
 
 import { BitcoinIcon, DollarIcon, EuroIcon, PoundIcon, YenIcon } from '@web/assets';
@@ -36,22 +36,13 @@ export const CurrencyInput = ({
 		onChange(formattedValue);
 	};
 
-	const currencyIcon = useMemo(() => {
-		switch (currency) {
-			case 'usd':
-				return <DollarIcon />;
-			case 'btc':
-				return <BitcoinIcon />;
-			case 'eur':
-				return <EuroIcon />;
-			case 'gbp':
-				return <PoundIcon />;
-			case 'jpy':
-				return <YenIcon />;
-			default:
-				return <DollarIcon />;
-		}
-	}, [currency]);
+	const currencyIcons: Record<OCurrencyType, JSX.Element> = {
+		btc: <BitcoinIcon />,
+		eur: <EuroIcon />,
+		gbp: <PoundIcon />,
+		jpy: <YenIcon />,
+		usd: <DollarIcon />,
+	};
 
 	return (
 		<FormControl>
@@ -70,7 +61,7 @@ export const CurrencyInput = ({
 									fontSize: theme.spacing(6),
 								}}
 							>
-								{currencyIcon}
+								{currencyIcons[currency as keyof typeof currencyIcons]}
 							</Box>
 						),
 					}}

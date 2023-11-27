@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useIntl } from 'react-intl';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller, useController } from 'react-hook-form';
 import { differenceInCalendarMonths, format } from 'date-fns';
 
 import { Box as MuiBox, useMediaQuery } from '@mui/material';
@@ -9,8 +9,7 @@ import {
 	AppButton,
 	AppDialog,
 	AppDialogProps,
-	AppSelect,
-	CurrencyInput,
+	ComplexCurrencyInput,
 	MonthPicker,
 } from '@web/components';
 import { theme } from '@web/lib';
@@ -23,7 +22,7 @@ import {
 	DonationDialogSummary,
 	DonationDialogSummaryProps,
 } from './components/DonationDialogSummary';
-import { StyledFormFields, StyledFormRow } from './DonationDialog.styled';
+import { StyledFormFields } from './DonationDialog.styled';
 
 type DonationDialogProps = AppDialogProps;
 type DonationForm = {
@@ -44,11 +43,16 @@ export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) =
 		},
 	});
 
+	const {
+		field: { onChange: valueOnChange, value: valueValue, name: valueName },
+	} = useController({ name: 'value', control, defaultValue: '' });
+	const {
+		field: { onChange: currencyOnChange, value: currencyValue, name: currencyName },
+	} = useController({ name: 'currency', control, defaultValue: 'usd' });
+
 	const amount = parseCurrencyToNumber(watch('value', '0'));
 	const month = watch('date');
 	const currency = watch('currency');
-
-	const currencyKeys: OCurrencyType[] = ['usd', 'gbp', 'eur', 'btc', 'jpy'];
 
 	const summaryData = useMemo(
 		(): DonationDialogSummaryProps['summaryData'] => ({
@@ -62,38 +66,16 @@ export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) =
 		<AppDialog handleClose={handleClose} triggerArea={<DonationDialogHeader />} {...props}>
 			<MuiBox component="form">
 				<StyledFormFields>
-					<StyledFormRow>
-						<Controller
-							name="value"
-							control={control}
-							render={({ field: { onChange, value, name } }) => (
-								<CurrencyInput
-									value={value}
-									id={name}
-									onChange={onChange}
-									label={formatMessage({ id: 'donation_dialog.money_input.label' })}
-									placeholder={formatMessage({ id: 'donation_dialog.money_input.placeholder' })}
-									currency={currency}
-								/>
-							)}
-						/>
-						<Controller
-							name="currency"
-							control={control}
-							render={({ field: { onChange, value, name } }) => (
-								<AppSelect
-									value={value}
-									options={currencyKeys.map((key) => ({
-										label: OCurrencyName[key as keyof typeof OCurrencyName],
-										value: key,
-									}))}
-									label="In currency"
-									onChange={onChange}
-									id={name}
-								/>
-							)}
-						/>
-					</StyledFormRow>
+					<ComplexCurrencyInput
+						valueName={valueName}
+						valueValue={valueValue}
+						valueOnChange={valueOnChange}
+						currencyName={currencyName}
+						currencyOnChange={currencyOnChange}
+						currencyValue={currencyValue}
+						label={formatMessage({ id: 'donation_dialog.money_input.label' })}
+						placeholder={formatMessage({ id: 'donation_dialog.money_input.placeholder' })}
+					/>
 
 					<Controller
 						name="date"

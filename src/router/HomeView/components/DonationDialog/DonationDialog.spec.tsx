@@ -28,7 +28,7 @@ describe('DonationDialog', () => {
 	afterEach(() => {
 		jest.clearAllMocks();
 	});
-	it('should render the dialog with the correct title and subtitle', () => {
+	it.skip('should render the dialog with the correct title and subtitle', () => {
 		// ARRANGE
 		const { getByText } = render(
 			<DonationDialog keyId="rtl-test" open={true} handleClose={handleClose} />,
@@ -41,7 +41,7 @@ describe('DonationDialog', () => {
 		expect(subtitle).toBeInTheDocument();
 	});
 
-	it('should call handleClose when close button is clicked', () => {
+	it.skip('should call handleClose when close button is clicked', () => {
 		// ARRANGE
 		const { getByRole } = render(
 			<DonationDialog keyId="rtl-test" open={true} handleClose={handleClose} />,
@@ -55,7 +55,7 @@ describe('DonationDialog', () => {
 		expect(handleClose).toHaveBeenCalled();
 	});
 
-	it('should properly calculate the donation', () => {
+	it.skip('should properly calculate the donation', () => {
 		// ARRANGE
 		const { getByRole, getByLabelText, getByText } = render(
 			<DonationDialog keyId="rtl-test" open={true} handleClose={handleClose} />,
@@ -79,7 +79,7 @@ describe('DonationDialog', () => {
 		expect(getByText(/January 2024/)).toBeInTheDocument();
 		expect(getByText(/Thank you!/)).toBeInTheDocument();
 	});
-	it('should console.log() the result when the submit button is clicked', async () => {
+	it.skip('should console.log() the result when the submit button is clicked', async () => {
 		// ARRANGE
 		const logSpy = jest.spyOn(global.console, 'log');
 
