@@ -1,14 +1,21 @@
 import { useMemo } from 'react';
 import { useIntl } from 'react-intl';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller, useController } from 'react-hook-form';
 import { differenceInCalendarMonths, format } from 'date-fns';
 
 import { Box as MuiBox, useMediaQuery } from '@mui/material';
 
-import { AppButton, AppDialog, AppDialogProps, CurrencyInput, MonthPicker } from '@web/components';
+import {
+	AppButton,
+	AppDialog,
+	AppDialogProps,
+	ComplexCurrencyInput,
+	MonthPicker,
+} from '@web/components';
 import { theme } from '@web/lib';
 import { StyledDialogActions } from '@web/components/AppDialog/AppDialog.styled';
 import { useCurrency } from '@web/utils';
+import { OCurrencyName, OCurrencyType } from '@web/types';
 
 import { DonationDialogHeader } from './components/DonationDialogHeader';
 import {
@@ -21,6 +28,7 @@ type DonationDialogProps = AppDialogProps;
 type DonationForm = {
 	date: Date;
 	value: string;
+	currency: OCurrencyType;
 };
 
 export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) => {
@@ -31,37 +39,44 @@ export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) =
 		defaultValues: {
 			date: new Date(),
 			value: '',
+			currency: 'usd',
 		},
 	});
 
+	const {
+		field: { onChange: valueOnChange, value: valueValue, name: valueName },
+	} = useController({ name: 'value', control, defaultValue: '' });
+	const {
+		field: { onChange: currencyOnChange, value: currencyValue, name: currencyName },
+	} = useController({ name: 'currency', control, defaultValue: 'usd' });
+
 	const amount = parseCurrencyToNumber(watch('value', '0'));
 	const month = watch('date');
+	const currency = watch('currency');
 
 	const summaryData = useMemo(
 		(): DonationDialogSummaryProps['summaryData'] => ({
 			totalAmount: amount * differenceInCalendarMonths(month, new Date()),
 			lastMonth: format(month, 'MMMM yyyy'),
 		}),
-		[month, amount],
+		[month, amount, currency],
 	);
 
 	return (
 		<AppDialog handleClose={handleClose} triggerArea={<DonationDialogHeader />} {...props}>
 			<MuiBox component="form">
 				<StyledFormFields>
-					<Controller
-						name="value"
-						control={control}
-						render={({ field: { onChange, value, name } }) => (
-							<CurrencyInput
-								value={value}
-								id={name}
-								onChange={onChange}
-								label={formatMessage({ id: 'donation_dialog.money_input.label' })}
-								placeholder={formatMessage({ id: 'donation_dialog.money_input.placeholder' })}
-							/>
-						)}
+					<ComplexCurrencyInput
+						valueName={valueName}
+						valueValue={valueValue}
+						valueOnChange={valueOnChange}
+						currencyName={currencyName}
+						currencyOnChange={currencyOnChange}
+						currencyValue={currencyValue}
+						label={formatMessage({ id: 'donation_dialog.money_input.label' })}
+						placeholder={formatMessage({ id: 'donation_dialog.money_input.placeholder' })}
 					/>
+
 					<Controller
 						name="date"
 						control={control}
@@ -79,6 +94,7 @@ export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) =
 					amount={amount}
 					month={month}
 					summaryData={summaryData}
+					currency={currency}
 					sx={{
 						marginTop: theme.spacing(10),
 						marginBottom: theme.spacing(8),
@@ -112,6 +128,7 @@ export const DonationDialog = ({ handleClose, ...props }: DonationDialogProps) =
 							const submitData = {
 								monthlyAmount: parseCurrencyToNumber(data.value),
 								lastMonth: format(month, 'MMMM yyyy'),
+								currency: OCurrencyName[currency as keyof typeof OCurrencyName],
 							};
 
 							console.log(submitData);
