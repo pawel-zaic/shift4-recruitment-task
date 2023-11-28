@@ -1,13 +1,11 @@
 import { Select as MuiSelect, styled } from '@mui/material';
 
-import { sharedInputStyles } from '@web/styles';
-
 export const StyledSelect = styled(MuiSelect)(({ theme }) => ({
-	...sharedInputStyles.root,
-	fontSize: theme.spacing(6),
+	fontSize: theme.spacing(4),
 	fontWeight: 600,
 	padding: theme.spacing(4, 4, 4, 2),
 	border: 'none',
+	minWidth: theme.spacing(8),
 
 	'& fieldset': {
 		borderColor: theme.palette.blueGray.light,

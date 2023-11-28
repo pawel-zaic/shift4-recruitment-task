@@ -1,19 +1,21 @@
 import { ChangeEvent } from 'react';
 import {
-	Box,
+	Box as MuiBox,
 	FormControl,
-	MenuItem,
 	TextFieldProps as MuiTextFieldProps,
 	SelectChangeEvent,
 } from '@mui/material';
 
 import { BitcoinIcon, DollarIcon, EuroIcon, PoundIcon, YenIcon } from '@web/assets';
-import { StyledInputLabel } from '@web/components';
+import { AppSelect, StyledInputLabel } from '@web/components';
 import { useCurrency, useInput } from '@web/utils';
 import { OCurrencyType } from '@web/types';
 
 import { theme } from '@web/lib';
-import { StyledCurrencyInputTextField, StyledSelect } from './ComplexCurrencyInput.styled';
+import {
+	StyledComplexCurrencyInput,
+	StyledCurrencyInputTextField,
+} from './ComplexCurrencyInput.styled';
 
 type ComplexCurrencyInputProps = Omit<MuiTextFieldProps, 'onChange'> & {
 	valueValue: string;
@@ -47,6 +49,15 @@ export const ComplexCurrencyInput = ({
 
 		valueOnChange(formattedValue);
 	};
+	const currencyKeys: OCurrencyType[] = ['usd', 'gbp', 'eur', 'btc', 'jpy'];
+
+	const currencyAbbreviations: Record<OCurrencyType, string> = {
+		btc: 'BTC',
+		eur: 'EUR',
+		gbp: 'GBP',
+		jpy: 'JPY',
+		usd: 'USD',
+	};
 
 	const currencyIcons: Record<OCurrencyType, JSX.Element> = {
 		btc: <BitcoinIcon />,
@@ -57,48 +68,45 @@ export const ComplexCurrencyInput = ({
 	};
 
 	return (
-		<FormControl>
-			<StyledInputLabel>
-				{label}
-				<StyledCurrencyInputTextField
-					inputProps={{ maxLength: 12 }}
-					InputLabelProps={{ shrink: true }}
-					InputProps={{
-						startAdornment: (
-							<StyledSelect
-								IconComponent={undefined}
-								value={currencyValue}
-								onChange={currencyOnChange}
-								renderValue={(value) => (
-									<Box
-										sx={{
-											display: 'flex',
-											alignItems: 'center',
-											fill: theme.palette.midnightGray.main,
-											fontSize: theme.spacing(10),
-										}}
-									>
-										{currencyIcons[value as keyof typeof currencyIcons]}
-									</Box>
-								)}
-								name={currencyName}
-								className="currency-select"
-							>
-								{Object.keys(currencyIcons).map((key) => (
-									<MenuItem key={key} value={key} sx={{ fill: theme.palette.midnightGray.main }}>
-										{currencyIcons[key as keyof typeof currencyIcons]}
-									</MenuItem>
-								))}
-							</StyledSelect>
-						),
-					}}
-					{...props}
-					placeholder={placeholder}
-					value={valueValue}
-					onChange={handleInputChange}
-					name={valueName}
+		<StyledComplexCurrencyInput>
+			<FormControl>
+				<StyledInputLabel>
+					{label}
+					<StyledCurrencyInputTextField
+						inputProps={{ maxLength: 12 }}
+						InputLabelProps={{ shrink: true }}
+						InputProps={{
+							startAdornment: (
+								<MuiBox
+									sx={{
+										display: 'flex',
+										alignItems: 'center',
+										fill: theme.palette.midnightGray.main,
+										fontSize: theme.spacing(6),
+									}}
+								>
+									{currencyIcons[currencyValue as keyof typeof currencyIcons]}
+								</MuiBox>
+							),
+						}}
+						{...props}
+						placeholder={placeholder}
+						value={valueValue}
+						onChange={handleInputChange}
+						name={valueName}
+					/>
+				</StyledInputLabel>
+			</FormControl>
+			<FormControl>
+				<AppSelect
+					value={currencyValue}
+					onChange={currencyOnChange}
+					options={currencyKeys.map((key) => ({
+						label: currencyAbbreviations[key as keyof typeof currencyAbbreviations],
+						value: key,
+					}))}
 				/>
-			</StyledInputLabel>
-		</FormControl>
+			</FormControl>
+		</StyledComplexCurrencyInput>
 	);
 };
