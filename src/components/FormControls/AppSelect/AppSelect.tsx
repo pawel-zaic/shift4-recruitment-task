@@ -42,7 +42,7 @@ export const AppSelect = ({
 				MenuProps={{
 					anchorOrigin: {
 						vertical: 'bottom',
-						horizontal: 'left',
+						horizontal: 'center',
 					},
 				}}
 				renderValue={(value) => {

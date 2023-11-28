@@ -27,8 +27,8 @@ export const Default: Story = {
 			<>
 				<ComplexCurrencyInput
 					{...args}
-					value={currencyValue}
-					onChange={(value: string) => setCurrencyValue(value)}
+					valueValue={currencyValue}
+					valueOnChange={(value: string) => setCurrencyValue(value)}
 				/>
 			</>
 		);
